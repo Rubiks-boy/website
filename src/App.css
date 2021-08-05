@@ -1,38 +1,164 @@
-.App {
-  text-align: center;
-}
+@import url("https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap");
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@keyframes increaseWidth {
+  100% {
+    width: 100%;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+@keyframes increaseHeight {
+  100% {
+    height: 90vh;
+  }
+}
+
+@keyframes fadeIn {
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  100% {
+    transform: translate(0);
+  }
+}
+
+:root {
+  --slant-left-height: 90vh;
+  --slant-right-height: 75vh;
+  --slant-right-percent: 83%;
+  --margin: 30px;
+  --fade-in-delay: 0.25s;
+}
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Cabin", sans-serif;
+}
+
+.alignVert {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.slant {
+  display: flex;
+  max-height: var(--slant-left-height);
+  clip-path: polygon(
+    0 0,
+    0 min(var(--slant-left-height), 99%),
+    100% min(var(--slant-right-height), var(--slant-right-percent)),
+    100% 0
+  );
+  margin-bottom: 10vh;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.slant--both {
+  clip-path: polygon(
+    0 0,
+    0 min(var(--slant-left-height), 99%),
+    100% min(var(--slant-right-height), var(--slant-right-percent)),
+    100% calc(var(--slant-left-height) - var(--slant-right-height))
+  );
+  margin-top: 10vh;
+}
+
+.imgContainer {
+  max-width: 100vh;
+}
+
+img {
+  width: 100%;
+}
+
+.pageContent {
+  margin: var(--margin);
+}
+
+.writeup > h1 {
+  font-size: 25px;
+  font-weight: 400;
+  margin-top: 0;
+}
+
+.writeup > * h3,
+.writeup > h3 {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.line--horiz {
+  animation: increaseWidth 2s;
+}
+
+.line--vert {
+  animation: increaseHeight 2s;
+}
+
+.line {
+  height: 1px;
+  width: 1px;
+  animation-fill-mode: forwards;
+}
+
+@media (min-width: 400px) {
+  .writeup > * h1 {
+    font-size: 28px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .writeup > * h3,
+  .writeup > h3 {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 500px) {
+  .writeup > h1 {
+    font-size: 32px;
+  }
+
+  .writeup > * h3,
+  .writeup > h3 {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 650px) {
+  .writeup > h1 {
+    font-size: 38px;
+  }
+
+  .writeup > * h3,
+  .writeup > h3 {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 900px) {
+  .writeup > h1 {
+    font-size: 45px;
+  }
+
+  .writeup > * h3,
+  .writeup > h3 {
+    font-size: 22px;
+  }
+}
+
+@media (min-width: 1050px) {
+  .writeup > h1 {
+    font-size: 50px;
+  }
+  .writeup > * h3,
+  .writeup > h3 {
+    font-size: 24px;
   }
 }

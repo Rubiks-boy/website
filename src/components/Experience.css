@@ -1,0 +1,65 @@
+.logosWrapper {
+  width: 20%;
+  max-width: 300px;
+}
+
+.logosWrapper.visible > .logos {
+  transition: transform 1.5s cubic-bezier(0.205, 0.965, 0.05, 0.95);
+}
+
+.logosWrapper:not(.visible) > .logos {
+  transition: transform 1.5s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+}
+
+.experience {
+  display: flex;
+  flex-direction: column;
+}
+
+.experienceRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  padding: 50px 0;
+}
+
+.experienceRow:not(:last-child) {
+  margin-bottom: 25vh;
+}
+
+.experienceRow > div {
+  margin: -10vh var(--margin);
+  padding: 10vh 0;
+}
+
+.logos > img {
+  padding: 15px 0;
+  transition: opacity 2s;
+}
+
+.logosWrapper > * img {
+  opacity: 0;
+}
+
+.logosWrapper.visible > * img {
+  opacity: 1;
+}
+
+.logos3.above > img:nth-child(1) {
+  transition-delay: calc(var(--fade-in-delay) * 2);
+}
+.logos3.above > img:nth-child(2) {
+  transition-delay: var(--fade-in-delay);
+}
+
+.logos3.below > img:nth-child(2) {
+  transition-delay: var(--fade-in-delay);
+}
+.logos3.below > img:nth-child(3) {
+  transition-delay: calc(var(--fade-in-delay) * 2);
+}
+
+.writeup > h1 {
+  font-size: 64px;
+}

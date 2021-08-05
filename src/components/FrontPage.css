@@ -1,0 +1,96 @@
+.frontPage {
+  position: relative;
+  transition: opacity 1s ease;
+}
+
+.frontPage:not(.fake) {
+  z-index: 1;
+}
+
+.frontPageTextContainer {
+  position: absolute;
+  height: 100%;
+  max-height: var(--slant-left-height);
+}
+
+.frontPageText {
+  margin: var(--margin);
+  color: white;
+  z-index: 1;
+}
+
+.frontPageText > h1 {
+  margin-bottom: 10px;
+}
+
+.frontPage > .line,
+.frontPage > * .line {
+  border: 1px solid white;
+}
+
+.frontPage > * .line--vert {
+  position: absolute;
+  margin-top: -20px;
+}
+
+.frontPage > .slant {
+  background-color: rgb(200, 200, 250);
+}
+
+.frontPage > * .slideAndFade {
+  opacity: 0;
+  animation: fadeIn 1s, slideIn 1s;
+  animation-fill-mode: forwards;
+}
+
+.frontPageText > h1.slideAndFade {
+  transform: translateX(-10px);
+  animation-delay: 0.5s;
+}
+
+.frontPageText > * h3.slideAndFade {
+  transform: translateX(-5px);
+  margin-left: 20px;
+  animation-delay: 1s;
+}
+
+.frontPageText > * h3:nth-child(2) {
+  margin-top: 20px;
+}
+
+.frontPage > * .imgContainer {
+  opacity: 0;
+  animation: fadeIn 2s;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.frontPage > * .imgLoader {
+  width: 100%;
+  height: calc(100vw * 4 / 3);
+}
+
+.fixOnScroll.fixed > .frontPage {
+  opacity: 0;
+}
+
+@media (min-aspect-ratio: 32/32) {
+  .frontPage > .slant {
+    justify-content: center;
+  }
+
+  .frontPageTextContainer {
+    position: unset;
+    height: auto;
+    padding-right: 5%;
+  }
+
+  .frontPageText {
+    color: rgb(43, 23, 76);
+  }
+
+  .frontPage > .line,
+  .frontPage > * .line {
+    border: 1px solid rgb(43, 23, 76);
+  }
+}

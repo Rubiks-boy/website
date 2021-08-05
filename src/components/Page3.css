@@ -1,0 +1,52 @@
+.page3 {
+  position: relative;
+  transition: opacity 1s ease;
+}
+
+.page3:not(.fake) {
+  z-index: 1;
+}
+
+.page3.fake {
+  visibility: hidden;
+}
+
+.page3TextContainer {
+  position: absolute;
+  height: 100%;
+  max-height: var(--slant-left-height);
+}
+
+.page3Text {
+  margin: var(--margin);
+  color: white;
+}
+
+.page3 > .slant {
+  background-color: rgb(6, 172, 254);
+}
+
+.page3 > * .imgLoader {
+  width: 100%;
+  height: calc(100vw * 4 / 3);
+}
+
+.fixOnScroll.fixed > .page3 {
+  opacity: 0;
+}
+
+@media (min-aspect-ratio: 32/32) {
+  .page3 > .slant {
+    justify-content: center;
+  }
+
+  .page3TextContainer {
+    position: unset;
+    height: auto;
+    padding-right: 5%;
+  }
+
+  .page3Text {
+    color: white;
+  }
+}
