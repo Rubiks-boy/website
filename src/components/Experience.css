@@ -35,7 +35,7 @@
 }
 
 .experienceRow > div {
-  margin: -10vh var(--margin);
+  margin: -10vh 0 -10vh var(--margin);
   padding: 10vh 0;
 }
 
@@ -81,6 +81,7 @@
   background-color: white;
   border: 1px solid var(--button-color);
   padding: 0 5px;
+  margin-top: var(--margin);
   margin-left: -5px;
   border-radius: 10px;
   transition: background-color 0.25s;

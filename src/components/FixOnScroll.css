@@ -25,6 +25,7 @@
   top: 50%;
   transform: translateY(-50%);
   display: unset;
+  margin-right: var(--margin);
 }
 
 .fixOnScroll-fakeinner.end {
