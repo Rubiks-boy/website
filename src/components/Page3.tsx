@@ -10,7 +10,7 @@ const Page3 = () => {
           <div className="page3TextContainer alignVert">
             <div className="page3Text writeup">
               <h1>Something clever</h1>
-              <h3>subtext</h3>
+              <p>subtext</p>
             </div>
           </div>
           <div className="imgContainer">

@@ -15,8 +15,8 @@ const FrontPage = () => {
               <h1 className="slideAndFade">Adam Walker</h1>
               <div>
                 <div className="line line--vert"></div>
-                <h3 className="slideAndFade">Software Engineer</h3>
-                <h3 className="slideAndFade">Mudd 2022</h3>
+                <p className="slideAndFade">Software Engineer</p>
+                <p className="slideAndFade">Mudd 2022</p>
               </div>
             </div>
           </div>

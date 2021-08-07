@@ -50,12 +50,12 @@
   transform: translateX(-10px);
 }
 
-.frontPageText > * h3.slideAndFade {
+.frontPageText > * p.slideAndFade {
   transform: translateX(-5px);
   margin-left: 20px;
 }
 
-.frontPageText > * h3:nth-child(2) {
+.frontPageText > * p:nth-child(2) {
   margin-top: 20px;
 }
 

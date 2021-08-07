@@ -77,8 +77,14 @@ img {
   margin-top: 0;
 }
 
-.writeup > * h3,
 .writeup > h3 {
+  font-size: 20px;
+  font-weight: 400;
+  margin-top: 0;
+}
+
+.writeup > * p,
+.writeup > p {
   font-size: 14px;
   font-weight: 400;
 }
@@ -119,12 +125,16 @@ img {
 }
 
 @media (min-width: 400px) {
-  .writeup > * h1 {
+  .writeup > h1 {
     font-size: 28px;
   }
 
-  .writeup > * h3,
   .writeup > h3 {
+    font-size: 23px;
+  }
+
+  .writeup > * p,
+  .writeup > p {
     font-size: 15px;
   }
 }
@@ -134,8 +144,12 @@ img {
     font-size: 32px;
   }
 
-  .writeup > * h3,
   .writeup > h3 {
+    font-size: 28px;
+  }
+
+  .writeup > * p,
+  .writeup > p {
     font-size: 16px;
   }
 }
@@ -145,8 +159,12 @@ img {
     font-size: 38px;
   }
 
-  .writeup > * h3,
   .writeup > h3 {
+    font-size: 33px;
+  }
+
+  .writeup > * p,
+  .writeup > p {
     font-size: 18px;
   }
 }
@@ -156,8 +174,12 @@ img {
     font-size: 45px;
   }
 
-  .writeup > * h3,
   .writeup > h3 {
+    font-size: 40px;
+  }
+
+  .writeup > * p,
+  .writeup > p {
     font-size: 22px;
   }
 }
@@ -166,8 +188,13 @@ img {
   .writeup > h1 {
     font-size: 50px;
   }
-  .writeup > * h3,
+
   .writeup > h3 {
+    font-size: 45px;
+  }
+
+  .writeup > * p,
+  .writeup > p {
     font-size: 24px;
   }
 }
