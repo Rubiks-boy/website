@@ -63,3 +63,40 @@
 .writeup > h1 {
   font-size: 64px;
 }
+
+.resumeButton {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border: 1px solid rgb(105, 105, 147);
+  padding: 0 5px;
+  margin-left: -5px;
+  border-radius: 10px;
+  transition: background-color 0.25s;
+}
+
+.resumeButton > svg {
+  fill: rgb(105, 105, 147);
+  margin: 5px 5px 5px 0;
+  transition: fill 0.25s;
+}
+
+.resumeButton > div {
+  color: rgb(105, 105, 147);
+  margin-right: 10px;
+  margin: 5px;
+  transition: color 0.25s;
+}
+
+.resumeButton:hover {
+  background-color: rgb(105, 105, 147);
+}
+
+.resumeButton:hover > svg {
+  fill: white;
+}
+
+.resumeButton:hover > div {
+  color: white;
+}
