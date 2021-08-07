@@ -39,8 +39,12 @@
 
 .frontPage > * .slideAndFade {
   opacity: 0;
-  animation: fadeIn 1s, slideIn 1s;
-  animation-fill-mode: forwards;
+  transition: opacity 1s, transform 1s;
+}
+
+.frontPage.loaded > * .slideAndFade {
+  opacity: 1;
+  transform: translate(0);
 }
 
 .frontPageText > h1.slideAndFade {
@@ -60,9 +64,11 @@
 
 .frontPage > * .imgContainer {
   opacity: 0;
-  animation: fadeIn 2s;
-  animation-delay: 0.5s;
-  animation-fill-mode: forwards;
+  transition: opacity 2s ease 0.5s;
+}
+
+.frontPage.loaded > * .imgContainer {
+  opacity: 1;
 }
 
 .frontPage > * .imgLoader {

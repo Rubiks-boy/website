@@ -12,18 +12,6 @@
   }
 }
 
-@keyframes fadeIn {
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes slideIn {
-  100% {
-    transform: translate(0);
-  }
-}
-
 :root {
   --slant-left-height: 90vh;
   --slant-right-height: 75vh;
@@ -95,12 +83,30 @@ img {
   font-weight: 400;
 }
 
+.line--horiz,
+.line--vert {
+  opacity: 0;
+}
+
+.loaded > * .line--horiz,
+.loaded > * .line--vert {
+  opacity: 1;
+}
+
 .line--horiz {
-  animation: increaseWidth 2s;
+  transition: width 2s;
 }
 
 .line--vert {
-  animation: increaseHeight 2s;
+  transition: height 2s;
+}
+
+.loaded > * .line--horiz {
+  width: 100%;
+}
+
+.loaded > * .line--vert {
+  height: 90vh;
 }
 
 .line {

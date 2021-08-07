@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
+import classNames from "classnames";
 import frontImage from "../static/img_1.jpeg";
 import "./FrontPage.css";
 
 const FrontPage = () => {
+  const [isLoaded, setLoaded] = useState(false);
+
   return (
-    <div className="frontPage">
+    <div className={classNames("frontPage", { loaded: isLoaded })}>
       <div className="slant">
         <div className="frontPageTextContainer alignVert">
           <div className="frontPageText writeup">
@@ -19,7 +22,11 @@ const FrontPage = () => {
         </div>
         <div className="imgContainer">
           <div className="imgLoader">
-            <img src={frontImage} alt="Adam Walker" />
+            <img
+              src={frontImage}
+              onLoad={() => setLoaded(true)}
+              alt="Adam Walker"
+            />
           </div>
         </div>
       </div>
