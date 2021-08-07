@@ -3,12 +3,6 @@
   max-width: 300px;
 }
 
-@media (min-width: 767px) {
-  .logosWrapper {
-    width: 20%;
-  }
-}
-
 .logosWrapper.visible > .logos {
   transition: transform 1s cubic-bezier(0.205, 0.965, 0.05, 0.95);
 }
