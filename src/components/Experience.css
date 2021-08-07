@@ -39,6 +39,18 @@
   padding: 10vh 0;
 }
 
+@media (min-width: 550px) {
+  .experienceRow > div {
+    margin-left: calc(var(--margin) * 1.5);
+  }
+}
+
+@media (min-width: 650px) {
+  .experienceRow > div {
+    margin-left: calc(var(--margin) * 2);
+  }
+}
+
 .logos > img {
   padding: 15px 0;
   transition: opacity 1s;
