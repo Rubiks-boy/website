@@ -1,15 +1,16 @@
 import React, { useEffect, useRef } from "react";
 
+import { FixedOnScrollBeginning, FixedOnScrollEnd } from "./FixedOnScroll";
+import useFadeObserver from "./useFadeObserver";
+
 import stripeLogo from "../static/stripe.png";
 import bloombergLogo from "../static/bloomberg.png";
 import zapposLogo from "../static/zappos.png";
 import hmcLogo from "../static/hmc.png";
-import useFadeObserver from "./useFadeObserver";
-import { FixedOnScrollBeginning, FixedOnScrollEnd } from "./FixedOnScroll";
 
 import "./Experience.css";
 
-const experienceWriteup = () => (
+const ExperienceWriteup = () => (
   <div className="writeup">
     <h1>Experience</h1>
     <p>I guess I have experience</p>
@@ -25,6 +26,7 @@ type Props = {
 const Experience = ({ fixOnScrollRef }: Props) => {
   const logosRef1 = useRef<HTMLDivElement>(null);
   const logosRef2 = useRef<HTMLDivElement>(null);
+  const logosRef3 = useRef<HTMLDivElement>(null);
 
   const fadeObserver = useFadeObserver();
 
@@ -38,6 +40,11 @@ const Experience = ({ fixOnScrollRef }: Props) => {
       fadeObserver.observe(logosRef2.current);
     }
   }, [fadeObserver, logosRef2]);
+  useEffect(() => {
+    if (logosRef3.current) {
+      fadeObserver.observe(logosRef3.current);
+    }
+  }, [fadeObserver, logosRef3]);
 
   return (
     <div className="page">
@@ -51,7 +58,7 @@ const Experience = ({ fixOnScrollRef }: Props) => {
             </div>
           </div>
           <FixedOnScrollBeginning fixOnScrollRef={fixOnScrollRef}>
-            {experienceWriteup()}
+            <ExperienceWriteup />
           </FixedOnScrollBeginning>
         </div>
         <div className="experienceRow">
@@ -60,8 +67,18 @@ const Experience = ({ fixOnScrollRef }: Props) => {
               <img src={hmcLogo} alt="hmc" />
             </div>
           </div>
+          <div className="fake">
+            <ExperienceWriteup />
+          </div>
+        </div>
+        <div className="experienceRow">
+          <div className="logosWrapper" ref={logosRef3}>
+            <div className="logos logos1 below">
+              <img src={hmcLogo} alt="hmc" />
+            </div>
+          </div>
           <FixedOnScrollEnd fixOnScrollRef={fixOnScrollRef}>
-            {experienceWriteup()}
+            <ExperienceWriteup />
           </FixedOnScrollEnd>
         </div>
       </div>

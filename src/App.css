@@ -114,6 +114,10 @@ img {
   width: 1px;
 }
 
+.fake {
+  opacity: 0;
+}
+
 @media (min-width: 400px) {
   .writeup > * h1 {
     font-size: 28px;

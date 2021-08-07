@@ -25,7 +25,7 @@
 }
 
 .experienceRow:not(:last-child) {
-  margin-bottom: 25vh;
+  margin-bottom: 15vh;
 }
 
 .experienceRow > div {
