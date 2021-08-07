@@ -12,15 +12,16 @@ export const FixedOnScrollBeginning = ({ fixOnScrollRef, children }: Props) => {
 
   const observer = useMemo(() => {
     const callback = (entries: any) => {
-      const { isIntersecting, boundingClientRect } = entries[0];
-      if (fixOnScrollRef.current) {
-        if (isIntersecting) {
-          fixOnScrollRef.current.classList.add("fixed");
-        } else if (boundingClientRect.top > 0) {
-          // we scrolled up above the current page
-          fixOnScrollRef.current.classList.remove("fixed");
+      entries.forEach(({ isIntersecting, boundingClientRect }: any) => {
+        if (fixOnScrollRef.current) {
+          if (isIntersecting) {
+            fixOnScrollRef.current.classList.add("fixed");
+          } else if (boundingClientRect.top > 0) {
+            // we scrolled up above the current page
+            fixOnScrollRef.current.classList.remove("fixed");
+          }
         }
-      }
+      });
     };
     return new IntersectionObserver(callback, {
       threshold: 1,
@@ -51,15 +52,16 @@ export const FixedOnScrollEnd = ({ fixOnScrollRef, children }: Props) => {
 
   const observer = useMemo(() => {
     const callback = (entries: any) => {
-      const { isIntersecting, boundingClientRect } = entries[0];
-      if (fixOnScrollRef.current) {
-        if (isIntersecting) {
-          fixOnScrollRef.current.classList.add("fixed");
-        } else if (boundingClientRect.top < 0) {
-          // we scrolled below the current page
-          fixOnScrollRef.current.classList.remove("fixed");
+      entries.forEach(({ isIntersecting, boundingClientRect }: any) => {
+        if (fixOnScrollRef.current) {
+          if (isIntersecting) {
+            fixOnScrollRef.current.classList.add("fixed");
+          } else if (boundingClientRect.top < 0) {
+            // we scrolled below the current page
+            fixOnScrollRef.current.classList.remove("fixed");
+          }
         }
-      }
+      });
     };
     return new IntersectionObserver(callback, {
       threshold: 1,
