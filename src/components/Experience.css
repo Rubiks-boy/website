@@ -64,12 +64,16 @@
   font-size: 64px;
 }
 
+:root {
+  --button-color: rgb(79, 79, 133);
+}
+
 .resumeButton {
   cursor: pointer;
   display: flex;
   align-items: center;
   background-color: white;
-  border: 1px solid rgb(105, 105, 147);
+  border: 1px solid var(--button-color);
   padding: 0 5px;
   margin-left: -5px;
   border-radius: 10px;
@@ -77,20 +81,20 @@
 }
 
 .resumeButton > svg {
-  fill: rgb(105, 105, 147);
+  fill: var(--button-color);
   margin: 5px 5px 5px 0;
   transition: fill 0.25s;
 }
 
 .resumeButton > div {
-  color: rgb(105, 105, 147);
+  color: var(--button-color);
   margin-right: 10px;
   margin: 5px;
   transition: color 0.25s;
 }
 
 .resumeButton:hover {
-  background-color: rgb(105, 105, 147);
+  background-color: var(--button-color);
 }
 
 .resumeButton:hover > svg {
