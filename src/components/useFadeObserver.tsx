@@ -1,11 +1,15 @@
-const callback = (entries: any) => {
+import { useMemo } from "react";
+
+const callback = (setLogoVisible: (id: string) => void) => (entries: any) => {
   const { target, isIntersecting, boundingClientRect, rootBounds } = entries[0];
 
   const logosDiv = target.firstChild;
+  const position = target.id;
 
   if (isIntersecting) {
     target.classList.add("visible");
     logosDiv.style.transform = "translateY(0)";
+    setLogoVisible(position);
   } else {
     target.classList.remove("visible");
 
@@ -21,10 +25,16 @@ const callback = (entries: any) => {
   }
 };
 
-const useFadeObserver = (): IntersectionObserver => {
-  return new IntersectionObserver(callback, {
-    threshold: 1,
-  });
+const useFadeObserver = (
+  setLogoVisible: (id: string) => void
+): IntersectionObserver => {
+  return useMemo(
+    () =>
+      new IntersectionObserver(callback(setLogoVisible), {
+        threshold: 1,
+      }),
+    [setLogoVisible]
+  );
 };
 
 export default useFadeObserver;

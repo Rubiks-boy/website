@@ -111,3 +111,12 @@
 .resumeButton:hover > div {
   color: white;
 }
+
+.switchText > p {
+  opacity: 1;
+  transition: opacity 0.25s;
+}
+
+.switchText > p.invisible {
+  opacity: 0;
+}

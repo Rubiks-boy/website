@@ -1,4 +1,5 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import classNames from "classnames";
 
 import { FixedOnScrollBeginning, FixedOnScrollEnd } from "./FixedOnScroll";
 import useFadeObserver from "./useFadeObserver";
@@ -28,20 +29,38 @@ const ResumeIcon = () => (
   </svg>
 );
 
-const ExperienceWriteup = () => (
-  <div className="writeup">
-    <h1>Experience</h1>
-    <p>I guess I have experience</p>
-    <p>I'm a legend</p>
-    <p>yeet yeet math math</p>
-    <p>
-      <button type="button" className="resumeButton">
-        <ResumeIcon />
-        <div>Resume</div>
-      </button>
-    </p>
-  </div>
-);
+const ExperienceWriteup = ({ currentLogo }: { currentLogo: string | null }) => {
+  const currentIndex = parseInt(
+    currentLogo?.substring(currentLogo.length - 1) || "0"
+  );
+
+  return (
+    <div className="writeup">
+      <h3>Experience</h3>
+      <div className="switchText">
+        <p
+          className={classNames({
+            invisible: currentIndex < 1,
+          })}
+        >
+          Experienced software engineer
+        </p>
+        <p className={classNames({ invisible: currentIndex < 2 })}>
+          B.S. in Computer Science, 2022
+        </p>
+        <p className={classNames({ invisible: currentIndex < 3 })}>
+          yeet yeet math math
+        </p>
+      </div>
+      <p>
+        <button type="button" className="resumeButton">
+          <ResumeIcon />
+          <div>Resume</div>
+        </button>
+      </p>
+    </div>
+  );
+};
 
 type Props = {
   fixOnScrollRef: React.RefObject<HTMLDivElement>;
@@ -52,29 +71,32 @@ const Experience = ({ fixOnScrollRef }: Props) => {
   const logosRef2 = useRef<HTMLDivElement>(null);
   const logosRef3 = useRef<HTMLDivElement>(null);
 
-  const fadeObserver = useFadeObserver();
+  const [currentLogo, setCurrentLogo] = useState<string | null>(null);
 
-  useEffect(() => {
-    if (logosRef1.current) {
-      fadeObserver.observe(logosRef1.current);
-    }
-  }, [fadeObserver, logosRef1]);
-  useEffect(() => {
-    if (logosRef2.current) {
-      fadeObserver.observe(logosRef2.current);
-    }
-  }, [fadeObserver, logosRef2]);
-  useEffect(() => {
-    if (logosRef3.current) {
-      fadeObserver.observe(logosRef3.current);
-    }
-  }, [fadeObserver, logosRef3]);
+  const fadeObserver = useFadeObserver(setCurrentLogo);
+
+  const useFadeEffect = (logosRef: React.RefObject<HTMLDivElement>) => {
+    useEffect(() => {
+      const ref = logosRef.current;
+      if (ref) {
+        fadeObserver.observe(ref);
+        return () => {
+          fadeObserver.unobserve(ref);
+        };
+      }
+      return () => {};
+    }, [logosRef]);
+  };
+
+  useFadeEffect(logosRef1);
+  useFadeEffect(logosRef2);
+  useFadeEffect(logosRef3);
 
   return (
     <div className="page">
       <div className="experience pageContent">
         <div className="experienceRow">
-          <div className="logosWrapper" ref={logosRef1}>
+          <div className="logosWrapper" ref={logosRef1} id="logoSet1">
             <div className="logos logos3 below">
               <img src={stripeLogo} alt="stripe" />
               <img src={bloombergLogo} alt="bloomberg" />
@@ -82,27 +104,27 @@ const Experience = ({ fixOnScrollRef }: Props) => {
             </div>
           </div>
           <FixedOnScrollBeginning fixOnScrollRef={fixOnScrollRef}>
-            <ExperienceWriteup />
+            <ExperienceWriteup currentLogo={currentLogo} />
           </FixedOnScrollBeginning>
         </div>
         <div className="experienceRow">
-          <div className="logosWrapper" ref={logosRef2}>
+          <div className="logosWrapper" ref={logosRef2} id="logoSet2">
             <div className="logos logos1 below">
               <img src={hmcLogo} alt="hmc" />
             </div>
           </div>
           <div className="fake">
-            <ExperienceWriteup />
+            <ExperienceWriteup currentLogo={currentLogo} />
           </div>
         </div>
         <div className="experienceRow">
-          <div className="logosWrapper" ref={logosRef3}>
+          <div className="logosWrapper" ref={logosRef3} id="logoSet3">
             <div className="logos logos1 below">
               <img src={hmcLogo} alt="hmc" />
             </div>
           </div>
           <FixedOnScrollEnd fixOnScrollRef={fixOnScrollRef}>
-            <ExperienceWriteup />
+            <ExperienceWriteup currentLogo={currentLogo} />
           </FixedOnScrollEnd>
         </div>
       </div>
