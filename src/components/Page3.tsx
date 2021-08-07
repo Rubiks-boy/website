@@ -18,13 +18,6 @@ const Page3 = () => {
           </div>
         </div>
       </div>
-      {/* <div className="page3 fake">
-        <div className="slant slant--both">
-          <div className="imgContainer">
-            <div className="imgLoader"></div>
-          </div>
-        </div>
-      </div> */}
     </>
   );
 };

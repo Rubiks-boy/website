@@ -30,7 +30,6 @@
 
 .frontPage > * .line--vert {
   position: absolute;
-  margin-top: -20px;
 }
 
 .frontPage > .slant {
@@ -42,20 +41,18 @@
   transition: opacity 1s, transform 1s;
 }
 
-.frontPage.loaded > * .slideAndFade {
+.frontPageContainer.loaded > * .slideAndFade {
   opacity: 1;
   transform: translate(0);
 }
 
 .frontPageText > h1.slideAndFade {
   transform: translateX(-10px);
-  animation-delay: 0.5s;
 }
 
 .frontPageText > * h3.slideAndFade {
   transform: translateX(-5px);
   margin-left: 20px;
-  animation-delay: 1s;
 }
 
 .frontPageText > * h3:nth-child(2) {
@@ -67,7 +64,7 @@
   transition: opacity 2s ease 0.5s;
 }
 
-.frontPage.loaded > * .imgContainer {
+.loaded > * .imgContainer {
   opacity: 1;
 }
 
@@ -76,7 +73,11 @@
   height: calc(100vw * 4 / 3);
 }
 
-.fixOnScroll.fixed > .frontPage {
+.frontPage > .slant > .imgContainer {
+  transition: opacity 1s ease;
+}
+
+.fixOnScroll.fixed > * .frontPage > .slant > .imgContainer {
   opacity: 0;
 }
 

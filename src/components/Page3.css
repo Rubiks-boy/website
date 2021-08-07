@@ -1,6 +1,5 @@
 .page3 {
   position: relative;
-  transition: opacity 1s ease;
 }
 
 .page3:not(.fake) {
@@ -20,10 +19,15 @@
 .page3Text {
   margin: var(--margin);
   color: white;
+  z-index: 1;
 }
 
 .page3 > .slant {
   background-color: rgb(6, 172, 254);
+}
+
+.page3 > .slant > .imgContainer {
+  transition: opacity 1s ease;
 }
 
 .page3 > * .imgLoader {
@@ -31,7 +35,7 @@
   height: calc(100vw * 4 / 3);
 }
 
-.fixOnScroll.fixed > .page3 {
+.fixOnScroll.fixed > .page3 > .slant > .imgContainer {
   opacity: 0;
 }
 

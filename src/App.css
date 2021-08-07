@@ -112,7 +112,6 @@ img {
 .line {
   height: 1px;
   width: 1px;
-  animation-fill-mode: forwards;
 }
 
 @media (min-width: 400px) {
