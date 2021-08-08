@@ -37,11 +37,9 @@ export default function Writeup({ currentLogo }: Props) {
             invisible: currentIndex < 1,
           })}
         >
-          Experienced software engineer
+          jobs lmao
         </p>
-        <p className={classNames({ invisible: currentIndex < 2 })}>
-          B.S. in Computer Science, 2022
-        </p>
+        <p className={classNames({ invisible: currentIndex < 2 })}>mudd lmao</p>
         <p className={classNames({ invisible: currentIndex < 3 })}>
           yeet yeet math math
         </p>
