@@ -3,10 +3,6 @@
   transition: opacity 1s ease;
 }
 
-.frontPage:not(.fake) {
-  z-index: 1;
-}
-
 .frontPageTextContainer {
   position: absolute;
   height: 100%;

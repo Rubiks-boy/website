@@ -2,14 +2,6 @@
   position: relative;
 }
 
-.page3:not(.fake) {
-  z-index: 1;
-}
-
-.page3.fake {
-  visibility: hidden;
-}
-
 .page3TextContainer {
   position: absolute;
   height: 100%;
