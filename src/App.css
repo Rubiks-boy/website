@@ -49,6 +49,17 @@ body {
   margin-bottom: 10vh;
 }
 
+.slant--top {
+  clip-path: polygon(
+    0 0,
+    0 100%,
+    100% 100%,
+    100% calc(var(--slant-left-height) - var(--slant-right-height))
+  );
+  margin-top: 10vh;
+  margin-bottom: 0;
+}
+
 .slant--both {
   clip-path: polygon(
     0 0,
@@ -127,10 +138,6 @@ img {
 .line {
   height: 1px;
   width: 1px;
-}
-
-.fake {
-  opacity: 0;
 }
 
 @media (min-width: 400px) {
