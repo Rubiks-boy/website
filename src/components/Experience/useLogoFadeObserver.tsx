@@ -27,7 +27,7 @@ const callback = (setLogoVisible: (id: string) => void) => (entries: any) => {
   });
 };
 
-const useFadeObserver = (
+const useLogoFadeObserver = (
   setLogoVisible: (id: string) => void
 ): IntersectionObserver => {
   return useMemo(
@@ -39,4 +39,4 @@ const useFadeObserver = (
   );
 };
 
-export default useFadeObserver;
+export default useLogoFadeObserver;
