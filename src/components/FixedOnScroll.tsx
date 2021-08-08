@@ -16,7 +16,7 @@ export const FixedOnScrollBeginning = ({ fixOnScrollRef, children }: Props) => {
         if (fixOnScrollRef.current) {
           if (isIntersecting) {
             fixOnScrollRef.current.classList.add("fixed");
-          } else if (boundingClientRect.top > 0) {
+          } else if (boundingClientRect.top > 100) {
             // we scrolled up above the current page
             fixOnScrollRef.current.classList.remove("fixed");
           }
@@ -56,7 +56,7 @@ export const FixedOnScrollEnd = ({ fixOnScrollRef, children }: Props) => {
         if (fixOnScrollRef.current) {
           if (isIntersecting) {
             fixOnScrollRef.current.classList.add("fixed");
-          } else if (boundingClientRect.top < 0) {
+          } else if (boundingClientRect.top < 100) {
             // we scrolled below the current page
             fixOnScrollRef.current.classList.remove("fixed");
           }
