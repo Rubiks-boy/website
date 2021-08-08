@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import classNames from "classnames";
 
-import useOpacityObserver from "./useOpacityObserver";
+import useOpacityObserver from "../hooks/useOpacityObserver";
 
 import frontImage from "../static/img_1.jpeg";
 import "./FrontPage.css";

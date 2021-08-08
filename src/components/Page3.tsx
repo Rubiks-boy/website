@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import frontImage from "../static/img_2.jpeg";
 import "./Page3.css";
-import useOpacityObserver from "./useOpacityObserver";
+import useOpacityObserver from "../hooks/useOpacityObserver";
 
 const Page3 = () => {
   const imgContainer = useRef<HTMLDivElement>(null);

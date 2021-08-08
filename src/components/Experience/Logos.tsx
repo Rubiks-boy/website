@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 
-import useLogoFadeObserver from "./useLogoFadeObserver";
+import useLogoFadeObserver from "../../hooks/useLogoFadeObserver";
 
 import stripeLogo from "../../static/stripe.png";
 import bloombergLogo from "../../static/bloomberg.png";
