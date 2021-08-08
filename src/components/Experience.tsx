@@ -130,7 +130,7 @@ const Experience = ({ fixOnScrollRef }: Props) => {
   return (
     <div className="page">
       <div className="experience pageContent">
-        <div className="experienceRow">
+        <div className="experienceCol left">
           <div className="logosWrapper" ref={logosRef1} id="logoSet1">
             <div className="logos logos3">
               <img src={stripeLogo} alt="stripe" />
@@ -138,29 +138,24 @@ const Experience = ({ fixOnScrollRef }: Props) => {
               <img src={zapposLogo} alt="zappos" />
             </div>
           </div>
-          <FixedOnScrollBeginning fixOnScrollRef={fixOnScrollRef}>
-            <ExperienceWriteup currentLogo={currentLogo} />
-          </FixedOnScrollBeginning>
-        </div>
-        <div className="experienceRow">
+
           <div className="logosWrapper" ref={logosRef2} id="logoSet2">
             <div className="logos logos1">
               <img src={hmcLogo} alt="hmc" />
             </div>
           </div>
-          <div className="fake">
-            <ExperienceWriteup currentLogo={currentLogo} />
-          </div>
-        </div>
-        <div className="experienceRow">
+
           <div className="logosWrapper" ref={logosRef3} id="logoSet3">
             <div className="logos logos1">
               <img src={hmcLogo} alt="hmc" />
             </div>
           </div>
-          <FixedOnScrollEnd fixOnScrollRef={fixOnScrollRef}>
+        </div>
+
+        <div className="experienceCol right">
+          <div className="stickyWriteup">
             <ExperienceWriteup currentLogo={currentLogo} />
-          </FixedOnScrollEnd>
+          </div>
         </div>
       </div>
     </div>
