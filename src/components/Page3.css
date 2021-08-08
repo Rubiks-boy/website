@@ -26,17 +26,9 @@
   background-color: rgb(6, 172, 254);
 }
 
-.page3 > .slant > .imgContainer {
-  transition: opacity 1s ease;
-}
-
 .page3 > * .imgLoader {
   width: 100%;
   height: calc(100vw * 4 / 3);
-}
-
-.fixOnScroll.fixed > .page3 > .slant > .imgContainer {
-  opacity: 0;
 }
 
 @media (min-aspect-ratio: 32/32) {

@@ -1,10 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import classNames from "classnames";
+
+import useOpacityObserver from "./useOpacityObserver";
+
 import frontImage from "../static/img_1.jpeg";
 import "./FrontPage.css";
 
 const FrontPage = () => {
   const [isLoaded, setLoaded] = useState(false);
+  const imgContainer = useRef<HTMLDivElement>(null);
+
+  const observer = useOpacityObserver({ threshold: 0.25 });
+
+  useEffect(() => {
+    const el = imgContainer.current;
+    if (el) {
+      observer.observe(el);
+      return () => {
+        observer.unobserve(el);
+      };
+    } else {
+      return () => {};
+    }
+  }, [observer]);
 
   return (
     <div className={classNames("frontPageContainer", { loaded: isLoaded })}>
@@ -20,7 +38,7 @@ const FrontPage = () => {
               </div>
             </div>
           </div>
-          <div className="imgContainer">
+          <div className="imgContainer fadeWhenInView" ref={imgContainer}>
             <div className="imgLoader">
               <img
                 src={frontImage}

@@ -77,10 +77,6 @@
   transition: opacity 1s ease;
 }
 
-.fixOnScroll.fixed > * .frontPage > .slant > .imgContainer {
-  opacity: 0;
-}
-
 @media (min-aspect-ratio: 32/32) {
   .frontPage > .slant {
     justify-content: center;

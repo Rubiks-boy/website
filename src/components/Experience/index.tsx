@@ -1,15 +1,10 @@
 import React, { useState } from "react";
-import Observer from "./Observer";
 import Writeup from "./Writeup";
 import Logos from "./Logos";
 
 import "./Experience.css";
 
-type Props = {
-  fixOnScrollRef: React.RefObject<HTMLDivElement>;
-};
-
-const Experience = ({ fixOnScrollRef }: Props) => {
+const Experience = () => {
   const [currentLogo, setCurrentLogo] = useState<string | null>(null);
 
   return (
@@ -18,9 +13,6 @@ const Experience = ({ fixOnScrollRef }: Props) => {
         <div className="experienceCol left">
           <Logos setCurrentLogo={setCurrentLogo} />
         </div>
-
-        <Observer fixOnScrollRef={fixOnScrollRef} />
-
         <div className="experienceCol right">
           <div className="stickyWriteup">
             <Writeup currentLogo={currentLogo} />
