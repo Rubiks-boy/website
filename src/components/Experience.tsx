@@ -67,6 +67,7 @@ type Props = {
 };
 
 const Experience = ({ fixOnScrollRef }: Props) => {
+  const didSetInitialLogoClass = useRef(false);
   const logosRef1 = useRef<HTMLDivElement>(null);
   const logosRef2 = useRef<HTMLDivElement>(null);
   const logosRef3 = useRef<HTMLDivElement>(null);
@@ -92,12 +93,46 @@ const Experience = ({ fixOnScrollRef }: Props) => {
   useFadeEffect(logosRef2);
   useFadeEffect(logosRef3);
 
+  useEffect(() => {
+    if (didSetInitialLogoClass.current) {
+      return;
+    }
+
+    if (logosRef1.current && logosRef2.current && logosRef3.current) {
+      didSetInitialLogoClass.current = true;
+
+      [logosRef1.current, logosRef2.current, logosRef3.current].forEach(
+        (logosWrapper) => {
+          const elBottom = logosWrapper.offsetTop + logosWrapper.offsetHeight;
+          const viewportBottom = window.innerHeight + window.pageYOffset;
+          const child = logosWrapper.firstChild as HTMLElement;
+          console.log(child);
+
+          if (logosWrapper.offsetTop < window.pageYOffset) {
+            if (logosWrapper.firstChild) {
+              console.log("above");
+              child.classList.add("above");
+            }
+          } else if (elBottom > viewportBottom) {
+            if (logosWrapper.firstChild) {
+              console.log("below");
+              child.classList.add("below");
+            }
+          } else {
+            console.log("visible");
+            logosWrapper.classList.add("visible");
+          }
+        }
+      );
+    }
+  }, [logosRef1, logosRef2, logosRef3]);
+
   return (
     <div className="page">
       <div className="experience pageContent">
         <div className="experienceRow">
           <div className="logosWrapper" ref={logosRef1} id="logoSet1">
-            <div className="logos logos3 below">
+            <div className="logos logos3">
               <img src={stripeLogo} alt="stripe" />
               <img src={bloombergLogo} alt="bloomberg" />
               <img src={zapposLogo} alt="zappos" />
@@ -109,7 +144,7 @@ const Experience = ({ fixOnScrollRef }: Props) => {
         </div>
         <div className="experienceRow">
           <div className="logosWrapper" ref={logosRef2} id="logoSet2">
-            <div className="logos logos1 below">
+            <div className="logos logos1">
               <img src={hmcLogo} alt="hmc" />
             </div>
           </div>
@@ -119,7 +154,7 @@ const Experience = ({ fixOnScrollRef }: Props) => {
         </div>
         <div className="experienceRow">
           <div className="logosWrapper" ref={logosRef3} id="logoSet3">
-            <div className="logos logos1 below">
+            <div className="logos logos1">
               <img src={hmcLogo} alt="hmc" />
             </div>
           </div>
