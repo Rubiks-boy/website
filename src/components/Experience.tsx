@@ -1,7 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useMemo } from "react";
 import classNames from "classnames";
-
-import { FixedOnScrollBeginning, FixedOnScrollEnd } from "./FixedOnScroll";
 import useFadeObserver from "./useFadeObserver";
 
 import stripeLogo from "../static/stripe.png";
@@ -71,6 +69,8 @@ const Experience = ({ fixOnScrollRef }: Props) => {
   const logosRef1 = useRef<HTMLDivElement>(null);
   const logosRef2 = useRef<HTMLDivElement>(null);
   const logosRef3 = useRef<HTMLDivElement>(null);
+  const topObserverRef = useRef<HTMLDivElement>(null);
+  const bottomObserverRef = useRef<HTMLDivElement>(null);
 
   const [currentLogo, setCurrentLogo] = useState<string | null>(null);
 
@@ -88,6 +88,63 @@ const Experience = ({ fixOnScrollRef }: Props) => {
       return () => {};
     }, [logosRef]);
   };
+
+  const topObserver = useMemo(() => {
+    const topCallback = (entries: any) => {
+      const { isIntersecting, boundingClientRect } = entries[0];
+      console.log(isIntersecting, boundingClientRect);
+      if (boundingClientRect.top > 100) {
+        if (isIntersecting) {
+          fixOnScrollRef.current?.classList.add("fixed");
+        } else {
+          fixOnScrollRef.current?.classList.remove("fixed");
+        }
+      }
+    };
+
+    return new IntersectionObserver(topCallback, {
+      threshold: 1,
+    });
+  }, [fixOnScrollRef]);
+
+  const bottomObserver = useMemo(() => {
+    const bottomCallback = (entries: any) => {
+      const { isIntersecting, boundingClientRect } = entries[0];
+      if (boundingClientRect.top < 100) {
+        if (isIntersecting) {
+          fixOnScrollRef.current?.classList.add("fixed");
+        } else {
+          fixOnScrollRef.current?.classList.remove("fixed");
+        }
+      }
+    };
+
+    return new IntersectionObserver(bottomCallback, {
+      threshold: 1,
+    });
+  }, [fixOnScrollRef]);
+
+  useEffect(() => {
+    const ref = topObserverRef.current;
+    if (ref) {
+      topObserver.observe(ref);
+      return () => {
+        topObserver.unobserve(ref);
+      };
+    }
+    return () => {};
+  }, [topObserver]);
+
+  useEffect(() => {
+    const ref = bottomObserverRef.current;
+    if (ref) {
+      bottomObserver.observe(ref);
+      return () => {
+        bottomObserver.unobserve(ref);
+      };
+    }
+    return () => {};
+  }, [bottomObserver]);
 
   useFadeEffect(logosRef1);
   useFadeEffect(logosRef2);
@@ -150,6 +207,11 @@ const Experience = ({ fixOnScrollRef }: Props) => {
               <img src={hmcLogo} alt="hmc" />
             </div>
           </div>
+        </div>
+
+        <div className="experienceCol observer">
+          <div className="top" ref={topObserverRef} />
+          <div className="bottom" ref={bottomObserverRef} />
         </div>
 
         <div className="experienceCol right">

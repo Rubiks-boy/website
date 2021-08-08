@@ -133,3 +133,23 @@
     margin-left: calc(var(--margin) * 2);
   }
 }
+
+.experienceCol.observer {
+  position: relative;
+}
+
+.experienceCol.observer > div {
+  width: 1px;
+  height: 30vh;
+}
+
+.experienceCol.observer > .top {
+  margin-top: calc(10vh + var(--max-content-height) / 2);
+  position: absolute;
+}
+
+.experienceCol.observer > .bottom {
+  margin-bottom: calc(10vh + var(--max-content-height) / 2);
+  position: absolute;
+  bottom: 0;
+}
