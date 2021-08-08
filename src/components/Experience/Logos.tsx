@@ -12,7 +12,7 @@ type Props = {
 };
 
 export default function Logos({ setCurrentLogo }: Props) {
-  const didSetInitialLogoClass = useRef(false);
+  // const didSetInitialLogoClass = useRef(false);
 
   const logosRef1 = useRef<HTMLDivElement>(null);
   const logosRef2 = useRef<HTMLDivElement>(null);
@@ -37,34 +37,34 @@ export default function Logos({ setCurrentLogo }: Props) {
   useFadeEffect(logosRef2);
   useFadeEffect(logosRef3);
 
-  useEffect(() => {
-    if (didSetInitialLogoClass.current) {
-      return;
-    }
+  // useEffect(() => {
+  //   if (didSetInitialLogoClass.current) {
+  //     return;
+  //   }
 
-    didSetInitialLogoClass.current = true;
+  //   didSetInitialLogoClass.current = true;
 
-    setTimeout(() => {
-      if (logosRef1.current && logosRef2.current && logosRef3.current) {
-        [logosRef1.current, logosRef2.current, logosRef3.current].forEach(
-          (logosWrapper) => {
-            const elBottom = logosWrapper.offsetTop + logosWrapper.offsetHeight;
-            const viewportTop = document.documentElement.scrollTop;
-            const viewportBottom = window.innerHeight + viewportTop;
-            const child = logosWrapper.firstChild as HTMLElement;
+  //   setTimeout(() => {
+  //     if (logosRef1.current && logosRef2.current && logosRef3.current) {
+  //       [logosRef1.current, logosRef2.current, logosRef3.current].forEach(
+  //         (logosWrapper) => {
+  //           const elBottom = logosWrapper.offsetTop + logosWrapper.offsetHeight;
+  //           const viewportTop = document.documentElement.scrollTop;
+  //           const viewportBottom = window.innerHeight + viewportTop;
+  //           const child = logosWrapper.firstChild as HTMLElement;
 
-            if (logosWrapper.offsetTop < viewportTop) {
-              child.classList.add("above");
-            } else if (elBottom > viewportBottom) {
-              child.classList.add("below");
-            } else {
-              logosWrapper.classList.add("visible");
-            }
-          }
-        );
-      }
-    }, 100);
-  }, [logosRef1, logosRef2, logosRef3]);
+  //           if (logosWrapper.offsetTop < viewportTop) {
+  //             child.classList.add("above");
+  //           } else if (elBottom > viewportBottom) {
+  //             child.classList.add("below");
+  //           } else {
+  //             logosWrapper.classList.add("visible");
+  //           }
+  //         }
+  //       );
+  //     }
+  //   }, 100);
+  // }, [logosRef1, logosRef2, logosRef3]);
 
   return (
     <>
