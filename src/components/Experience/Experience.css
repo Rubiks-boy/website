@@ -1,6 +1,18 @@
 :root {
-  --max-content-height: 500px;
+  --base-content-height: 200px;
   --button-color: rgb(79, 79, 133);
+}
+
+@media (min-height: 500px) {
+  :root {
+    --base-content-height: 250px;
+  }
+}
+
+@media (min-height: 650px) {
+  :root {
+    --base-content-height: 500px;
+  }
 }
 
 .experience {
@@ -16,13 +28,13 @@
 
 .stickyWriteup {
   position: sticky;
-  top: calc(50% - var(--max-content-height) / 2);
+  top: calc(50% - var(--base-content-height) / 2);
 }
 
 .logosWrapper,
 .stickyWriteup {
   display: flex;
-  height: var(--max-content-height);
+  height: var(--base-content-height);
   align-items: center;
 }
 
@@ -40,7 +52,7 @@
 }
 
 .logosWrapper:not(:last-child) {
-  margin-bottom: 25vh;
+  margin-bottom: 20vh;
 }
 .logosWrapper > * img {
   padding: 15px 0;
