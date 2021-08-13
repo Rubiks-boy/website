@@ -24,13 +24,16 @@ const Projects = () => {
   return (
     <div className="projects">
       <div className="slant slant--top">
-        <div className="projectsTextContainer alignVert">
+        <div className="projectsTextContainer align-vert">
           <div className="projectsText writeup">
             <h1>Projects</h1>
           </div>
         </div>
         <div className="parallax">
-          <div className="imgContainer fadeWhenInView" ref={imgContainerRef}>
+          <div
+            className="img-container fade-when-in-view"
+            ref={imgContainerRef}
+          >
             <img src={frontImage} alt="Front page" />
           </div>
         </div>

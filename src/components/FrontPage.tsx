@@ -28,7 +28,7 @@ const FrontPage = () => {
     <div className={classNames("frontPageContainer", { loaded: isLoaded })}>
       <div className={"frontPage"}>
         <div className="slant">
-          <div className="frontPageTextContainer alignVert">
+          <div className="frontPageTextContainer align-vert">
             <div className="frontPageText writeup">
               <h1 className="slideAndFade">Adam Walker</h1>
               <div>
@@ -38,7 +38,7 @@ const FrontPage = () => {
               </div>
             </div>
           </div>
-          <div className="imgContainer fadeWhenInView" ref={imgContainer}>
+          <div className="img-container fade-when-in-view" ref={imgContainer}>
             <div className="imgLoader">
               <img
                 src={frontImage}

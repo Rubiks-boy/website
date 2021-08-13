@@ -5,6 +5,8 @@ import Page3 from "./components/Page3";
 import Projects from "./components/Projects";
 
 import "./App.css";
+import "./shared.css";
+import "./fonts.css";
 
 const App = () => {
   return (

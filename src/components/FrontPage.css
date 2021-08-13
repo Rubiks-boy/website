@@ -55,12 +55,12 @@
   margin-top: 20px;
 }
 
-.frontPage > * .imgContainer {
+.frontPage > * .img-container {
   opacity: 0;
   transition: opacity 2s ease 0.5s;
 }
 
-.loaded > * .imgContainer {
+.loaded > * .img-container {
   opacity: 1;
 }
 
@@ -69,7 +69,7 @@
   height: calc(100vw * 4 / 3);
 }
 
-.frontPage > .slant > .imgContainer {
+.frontPage > .slant > .img-container {
   transition: opacity 1s ease;
 }
 

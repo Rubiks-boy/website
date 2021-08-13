@@ -9,7 +9,7 @@ const Experience = () => {
 
   return (
     <div className="page">
-      <div className="experience pageContent">
+      <div className="experience page-content">
         <div className="experienceCol left">
           <Logos setCurrentLogo={setCurrentLogo} />
         </div>

@@ -23,13 +23,13 @@ const Page3 = () => {
   return (
     <div className="page3">
       <div className="slant slant--both">
-        <div className="page3TextContainer alignVert">
+        <div className="page3TextContainer align-vert">
           <div className="page3Text writeup">
             <h1>Something clever</h1>
             <p>subtext</p>
           </div>
         </div>
-        <div className="imgContainer fadeWhenInView" ref={imgContainer}>
+        <div className="img-container fade-when-in-view" ref={imgContainer}>
           <img src={frontImage} alt="Front page" />
         </div>
       </div>
