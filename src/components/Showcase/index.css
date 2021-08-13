@@ -1,0 +1,162 @@
+.showcase {
+  --animation-delay: 1s;
+  --typing-speed: 100ms;
+  --blink-duration: 0.5s;
+  --num-chars-0: 8;
+  --num-chars-1: 6;
+  --num-chars-2: 16;
+  --num-chars-3: 21;
+
+  background-color: black;
+  width: 100%;
+  height: 100vh;
+  color: white;
+}
+
+.typewriter {
+  margin-top: 0;
+  position: relative;
+  width: fit-content;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.typewriter::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: black;
+}
+
+.start .typewriter.line0::before {
+  animation: typewriter calc(var(--typing-speed) * var(--num-chars-0))
+    steps(var(--num-chars-0)) var(--animation-delay) forwards;
+}
+
+.start .typewriter.line1::before {
+  animation: typewriter calc(var(--typing-speed) * var(--num-chars-1))
+    steps(var(--num-chars-1))
+    calc(
+      var(--animation-delay) + var(--typing-speed) * (var(--num-chars-0) + 2)
+    )
+    forwards;
+}
+
+.start .typewriter.line2::before {
+  animation: typewriter calc(var(--typing-speed) * var(--num-chars-2))
+    steps(var(--num-chars-2))
+    calc(
+      var(--animation-delay) + var(--typing-speed) *
+        (var(--num-chars-0) + var(--num-chars-1) + 4)
+    )
+    forwards;
+}
+
+.start .typewriter.line3::before {
+  animation: typewriter calc(var(--typing-speed) * var(--num-chars-3))
+    steps(var(--num-chars-3))
+    calc(
+      var(--animation-delay) + var(--typing-speed) *
+        (var(--num-chars-0) + var(--num-chars-1) + var(--num-chars-2) + 6)
+    )
+    forwards;
+}
+
+.typewriter::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 0.08em;
+  height: 100%;
+  background-color: white;
+  opacity: 0;
+}
+
+.typewriter.line0::after {
+  animation: blink var(--blink-duration) infinite;
+}
+
+.start .typewriter.line0::after {
+  animation: typewriter calc(var(--typing-speed) * var(--num-chars-0))
+      steps(var(--num-chars-0)) var(--animation-delay) forwards,
+    blink var(--blink-duration) infinite,
+    disappear 0s
+      calc(var(--typing-speed) * var(--num-chars-0) + var(--animation-delay))
+      forwards;
+}
+
+.start .typewriter.line1::after {
+  animation: typewriter calc(var(--typing-speed) * var(--num-chars-1))
+      steps(var(--num-chars-1))
+      calc(
+        var(--animation-delay) + var(--typing-speed) * (var(--num-chars-0) + 2)
+      )
+      forwards,
+    blink var(--blink-duration)
+      calc(var(--typing-speed) * var(--num-chars-0) + var(--animation-delay))
+      infinite,
+    disappear 0s
+      calc(
+        var(--typing-speed) * (var(--num-chars-0) + var(--num-chars-1) + 2) +
+          var(--animation-delay)
+      )
+      forwards;
+}
+
+.start .typewriter.line2::after {
+  animation: typewriter calc(var(--typing-speed) * var(--num-chars-2))
+      steps(var(--num-chars-2))
+      calc(
+        var(--animation-delay) + var(--typing-speed) *
+          (var(--num-chars-0) + var(--num-chars-1) + 4)
+      )
+      forwards,
+    blink var(--blink-duration)
+      calc(
+        var(--typing-speed) * (var(--num-chars-0) + var(--num-chars-1) + 2) +
+          var(--animation-delay)
+      )
+      infinite,
+    disappear 0s
+      calc(
+        var(--typing-speed) *
+          (var(--num-chars-0) + var(--num-chars-1) + var(--num-chars-2) + 4) +
+          var(--animation-delay)
+      )
+      forwards;
+}
+
+.start .typewriter.line3::after {
+  animation: typewriter calc(var(--typing-speed) * var(--num-chars-3))
+      steps(var(--num-chars-3))
+      calc(
+        var(--animation-delay) + var(--typing-speed) *
+          (var(--num-chars-0) + var(--num-chars-1) + var(--num-chars-2) + 6)
+      )
+      forwards,
+    blink var(--blink-duration)
+      calc(
+        var(--typing-speed) *
+          (var(--num-chars-0) + var(--num-chars-1) + var(--num-chars-2) + 4) +
+          var(--animation-delay)
+      )
+      infinite;
+}
+
+@keyframes typewriter {
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes blink {
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes disappear {
+  0%,
+  100% {
+    opacity: 0;
+  }
+}
