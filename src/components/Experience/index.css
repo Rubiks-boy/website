@@ -15,55 +15,76 @@
   }
 }
 
+.page-content {
+  margin: var(--margin);
+}
+
 .experience {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
 
-.experienceCol.left {
+.experience-col.left {
   width: 30%;
   max-width: 300px;
 }
 
-.stickyWriteup {
+.experience-col.right {
+  margin-top: 10vh;
+  margin-left: var(--margin);
+}
+
+@media (min-width: 550px) {
+  .experience-col.right {
+    margin-left: calc(var(--margin) * 1.5);
+  }
+}
+
+@media (min-width: 650px) {
+  .experience-col.right {
+    margin-left: calc(var(--margin) * 2);
+  }
+}
+
+.sticky-writeup {
   position: sticky;
   top: calc(50% - var(--base-content-height) / 2);
 }
 
-.logosWrapper,
-.stickyWriteup {
+.logos-wrapper,
+.sticky-writeup {
   display: flex;
   height: var(--base-content-height);
   align-items: center;
 }
 
-.logosWrapper.visible > .logos {
+.logos-wrapper.visible .logos {
   transition: transform 1s cubic-bezier(0.205, 0.965, 0.05, 0.95);
 }
 
-.logosWrapper:not(.visible) > .logos {
+.logos-wrapper:not(.visible) .logos {
   transition: transform 1s cubic-bezier(0.95, 0.05, 0.795, 0.035);
 }
 
-.logosWrapper,
-.experienceCol.right {
+.logos-wrapper,
+.experience-col.right {
   margin: 10vh 0;
 }
 
-.logosWrapper:not(:last-child) {
+.logos-wrapper:not(:last-child) {
   margin-bottom: 20vh;
 }
-.logosWrapper > * img {
+.logos-wrapper img {
   padding: 15px 0;
   transition: opacity 1s;
 }
 
-.logosWrapper > * img {
+.logos-wrapper img {
   opacity: 0;
 }
 
-.logosWrapper.visible > * img {
+.logos-wrapper.visible img {
   opacity: 1;
 }
 
@@ -81,7 +102,7 @@
   transition-delay: calc(var(--fade-in-delay) * 2);
 }
 
-.resumeButton {
+.resume-button {
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -94,53 +115,36 @@
   transition: background-color 0.25s;
 }
 
-.resumeButton > svg {
+.resume-button svg {
   fill: var(--button-color);
   margin: 5px 5px 5px 0;
   transition: fill 0.25s;
 }
 
-.resumeButton > div {
+.resume-button div {
   color: var(--button-color);
   margin-right: 10px;
   margin: 5px;
   transition: color 0.25s;
 }
 
-.resumeButton:hover {
+.resume-button:hover {
   background-color: var(--button-color);
 }
 
-.resumeButton:hover > svg {
+.resume-button:hover svg {
   fill: white;
 }
 
-.resumeButton:hover > div {
+.resume-button:hover div {
   color: white;
 }
 
-.switchText > p {
+.switch-text p {
   opacity: 1;
   transition: opacity 0.25s;
 }
 
-.switchText > p.invisible {
+.switch-text p.invisible {
   opacity: 0;
-}
-
-.experienceCol.right {
-  margin-top: 10vh;
-  margin-left: var(--margin);
-}
-
-@media (min-width: 550px) {
-  .experienceCol.right {
-    margin-left: calc(var(--margin) * 1.5);
-  }
-}
-
-@media (min-width: 650px) {
-  .experienceCol.right {
-    margin-left: calc(var(--margin) * 2);
-  }
 }

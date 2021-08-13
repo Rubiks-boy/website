@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Writeup from "./Writeup";
 import Logos from "./Logos";
 
-import "./Experience.css";
+import "./index.css";
 
 const Experience = () => {
   const [currentLogo, setCurrentLogo] = useState<string | null>(null);
@@ -10,11 +10,11 @@ const Experience = () => {
   return (
     <div className="page">
       <div className="experience page-content">
-        <div className="experienceCol left">
+        <div className="experience-col left">
           <Logos setCurrentLogo={setCurrentLogo} />
         </div>
-        <div className="experienceCol right">
-          <div className="stickyWriteup">
+        <div className="experience-col right">
+          <div className="sticky-writeup">
             <Writeup currentLogo={currentLogo} />
           </div>
         </div>

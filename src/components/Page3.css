@@ -14,17 +14,17 @@
   z-index: 1;
 }
 
-.page3 > .slant {
+.page3 .slant {
   background-color: rgb(6, 172, 254);
 }
 
-.page3 > * .imgLoader {
+.page3 .img-loader {
   width: 100%;
   height: calc(100vw * 4 / 3);
 }
 
 @media (min-aspect-ratio: 32/32) {
-  .page3 > .slant {
+  .page3 .slant {
     justify-content: center;
   }
 

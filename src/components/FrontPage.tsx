@@ -27,19 +27,19 @@ const FrontPage = () => {
   return (
     <div className={classNames("frontPageContainer", { loaded: isLoaded })}>
       <div className={"frontPage"}>
-        <div className="slant">
+        <div className="slant slant--bottom">
           <div className="frontPageTextContainer align-vert">
             <div className="frontPageText writeup">
               <h1 className="slideAndFade">Adam Walker</h1>
               <div>
-                <div className="line line--vert"></div>
+                <div className="frontpageLine"></div>
                 <p className="slideAndFade">Software Engineer</p>
                 <p className="slideAndFade">Mudd 2022</p>
               </div>
             </div>
           </div>
           <div className="img-container fade-when-in-view" ref={imgContainer}>
-            <div className="imgLoader">
+            <div className="img-loader">
               <img
                 src={frontImage}
                 onLoad={() => setLoaded(true)}

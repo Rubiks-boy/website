@@ -31,7 +31,7 @@ export default function Writeup({ currentLogo }: Props) {
   return (
     <div className="writeup">
       <h3>Experience</h3>
-      <div className="switchText">
+      <div className="switch-text">
         <p
           className={classNames({
             invisible: currentIndex < 1,
@@ -45,7 +45,7 @@ export default function Writeup({ currentLogo }: Props) {
         </p>
       </div>
       <p>
-        <button type="button" className="resumeButton">
+        <button type="button" className="resume-button">
           <ResumeIcon />
           <div>Resume</div>
         </button>

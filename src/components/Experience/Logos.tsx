@@ -68,7 +68,7 @@ export default function Logos({ setCurrentLogo }: Props) {
 
   return (
     <>
-      <div className="logosWrapper" ref={logosRef1} id="logoSet1">
+      <div className="logos-wrapper" ref={logosRef1} id="logoSet1">
         <div className="logos logos3">
           <img src={stripeLogo} alt="stripe" />
           <img src={bloombergLogo} alt="bloomberg" />
@@ -76,13 +76,13 @@ export default function Logos({ setCurrentLogo }: Props) {
         </div>
       </div>
 
-      <div className="logosWrapper" ref={logosRef2} id="logoSet2">
+      <div className="logos-wrapper" ref={logosRef2} id="logoSet2">
         <div className="logos logos1">
           <img src={hmcLogo} alt="hmc" />
         </div>
       </div>
 
-      <div className="logosWrapper" ref={logosRef3} id="logoSet3">
+      <div className="logos-wrapper" ref={logosRef3} id="logoSet3">
         <div className="logos logos1">
           <img src={hmcLogo} alt="hmc" />
         </div>

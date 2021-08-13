@@ -1,6 +1,9 @@
 .slant {
   display: flex;
   max-height: var(--slant-left-height);
+}
+
+.slant--bottom {
   clip-path: polygon(
     0 0,
     0 min(var(--slant-left-height), 99%),
@@ -18,7 +21,6 @@
     100% calc(var(--slant-left-height) - var(--slant-right-height))
   );
   margin-top: 10vh;
-  margin-bottom: 0;
 }
 
 .slant--both {
@@ -29,6 +31,7 @@
     100% calc(var(--slant-left-height) - var(--slant-right-height))
   );
   margin-top: 10vh;
+  margin-bottom: 10vh;
 }
 
 .align-vert {
@@ -44,45 +47,7 @@
   opacity: 0;
   transition: opacity 1s;
 }
-.line--horiz,
-.line--vert {
-  opacity: 0;
-}
-
-.loaded .line--horiz,
-.loaded .line--vert {
-  opacity: 1;
-}
-
-.line--horiz {
-  transition: width 2s;
-}
-
-.line--vert {
-  transition: height 2s;
-}
-
-.loaded .line--horiz {
-  width: 100%;
-}
-
-.loaded .line--vert {
-  height: 90vh;
-}
-
-.line {
-  height: 1px;
-  width: 1px;
-}
 
 .img-container.fade-when-in-view.visible {
   opacity: 1;
-}
-
-img {
-  width: 100%;
-}
-
-.page-content {
-  margin: var(--margin);
 }
